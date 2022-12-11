@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <!-- <MkKimMenu /> -->
     <Main />
     <Benefit />
     <Call />
@@ -15,6 +16,7 @@
 </template>
 
 <script>
+import MkKimMenu from "@/components/Menu.vue";
 import Main from "@/components/Main.vue";
 import Benefit from "@/components/Benefit.vue";
 import Call from "@/components/Call.vue";
@@ -29,6 +31,7 @@ import Footer from "@/components/Footer.vue";
 export default {
   name: "HomeView",
   components: {
+    MkKimMenu,
     Main,
     Benefit,
     Call,

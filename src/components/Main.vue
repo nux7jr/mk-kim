@@ -78,6 +78,9 @@ export default {
   width: 20px;
   height: 20px;
 }
+.main-info {
+  margin-top: 70px;
+}
 .main-info__link {
   display: block;
   max-width: 134px;
@@ -134,6 +137,9 @@ export default {
   }
   .data-location__text {
     font-size: 1.2em;
+  }
+  .main-info {
+    margin-top: 0;
   }
 }
 </style>

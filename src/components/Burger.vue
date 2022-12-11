@@ -1,8 +1,5 @@
 <template>
   <Slide right>
-    <!-- <a id="home" href="#">
-      <span>Home</span>
-    </a> -->
     <div class="mobile-links">
       <a href="#whats">Что будет</a>
       <a href="#about">О спикере</a>
@@ -27,11 +24,11 @@ export default {
   width: 36px;
   height: 30px;
   right: 15px !important;
-  top: 10px;
+  top: 10px !important;
   cursor: pointer;
 }
 .bm-burger-bars {
-  background-color: #fdfeff;
+  background-color: #ffffff !important;
 }
 .line-style {
   position: absolute;
