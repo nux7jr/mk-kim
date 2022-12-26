@@ -2,10 +2,10 @@
   <section class="call">
     <div class="call__wrapper">
       <p>
-        Вы можете сами управлять своей судьбой и достичь результатов не зависимо от внешних обстоятельств.
+        Вы можете сами управлять своей судьбой и достичь результатов независимо от внешних обстоятельств.
       </p>
       <p>
-        Прими участие в мастер-классе и получи <strong>пошаговый план к первому миллиону $.</strong>
+        Прими участие в мастер-классе и получи <strong>пошаговый план Сергея Ким, который привел его к первому миллиону $.</strong>
       </p>
       <a href="https://krs.kassir.ru/obrazovanie/ot-gastarbaytera-do-milliardera" class="default__button call__link" target="_blank" rel="noopener noreferrer" onclick="ym(90660050,'reachGoal','clickkassir')">Купить билет</a>
     </div>
@@ -53,5 +53,9 @@ form {
   border-radius: 15px;
   padding: 15px;
 }
-
+@media (min-width: 1199.98px) {
+  .call__wrapper {
+    padding: 60px;
+  }
+}
 </style>

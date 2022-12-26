@@ -1,10 +1,22 @@
 <template>
   <nav>
-    <img
-      class="nav__img nav__item nav__logo"
-      src="@/assets/img/tiksan.svg"
-      alt="tiksan"
-    />
+    <div class="logos">
+      <a href="https://vk.com/tiksan_academy" target="_blank" rel="noopener noreferrer">
+        <img
+          class="nav__img nav__item nav__logo"
+          src="@/assets/img/acadymy.png"
+          alt="tiksan"
+        />
+      </a>
+      <hr>
+      <a href="https://tiksan.ru/" target="_blank" rel="noopener noreferrer">
+        <img
+        class="nav__img nav__item nav__logo second__logo"
+        src="@/assets/img/tiksan.svg"
+        alt="tiksan"
+        />
+      </a>
+    </div>
     <ul class="nav__item nav__link">
       <li>
         <a href="#whats">Что будет</a>
@@ -55,6 +67,7 @@
         target="_blank"
         rel="noopener noreferrer"
         class="default__button nav__call"
+        onclick="ym(90660050,'reachGoal','clickkassir')"
         >Забронировать</a
       >
     </div>
@@ -80,17 +93,25 @@ export default {
 </script>
 
 <style lang="scss">
+@font-face {
+  font-family: "Inter Light";
+  src: url("@/assets/fonts/Inter-Light.ttf");
+}
 nav {
   background-color: transparent;
-
   position: relative;
   display: flex;
+  position: absolute;
+  width: 95%;
+  left: 5px;
+  top: 10px;
 }
 .nav-social__icon {
   width: 38px;
 }
 .nav__logo {
-  width: 180px;
+  width: 110px;
+  padding: 7px;
 }
 .social {
   display: none;
@@ -98,8 +119,33 @@ nav {
 .nav__link {
   display: none;
 }
-
+.nav__link {
+  font-family: "Inter Light" !important;
+}
+.logos {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+hr {
+  width: 2px;
+  background-color: white;
+  border-radius: 20px;
+  height: 50px;
+}
+.second__logo {
+  margin-left: 1px;
+}
+@media (min-width: 767.98px) {
+  .nav__logo {
+    width: 150px;
+    padding: 15px;
+  }
+}
 @media (min-width: 1199.98px) {
+  .second__logo {
+    margin-left: 1px;
+  }
   .nav__logo {
     padding: 30px;
     padding-left: 80px;
@@ -107,8 +153,8 @@ nav {
   nav {
     position: absolute;
     top: 0;
-    right: calc(50vw - 45vw);
-    width: 90vw;
+    left: -2vw;
+    width: 100vw;
 
     justify-content: space-between;
     align-items: center;
@@ -124,21 +170,35 @@ nav {
     align-items: center;
     gap: 5px;
   }
+  .nav__call {
+    margin: 0;
+  }
+}
+@media (min-width: 1439.98px) {
+  nav {
+    left: calc(50vw - 40vw);
+    width: 80vw;
+  }
+  .nav__logo {
+    padding: 30px;
+    padding-left: 0px;
+  }
   .nav__link {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    font-family: "Inter Light" !important;
   }
   .nav__link a {
     color: white;
     transition: 0.5s;
+    font-size: 1.6em;
   }
   .nav__link a:hover {
     color: rgb(215, 211, 211);
   }
-
-  .nav__call {
-    margin: 0;
+  .second__logo {
+    margin-left: 20px;
   }
 }
 </style>

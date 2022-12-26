@@ -5,8 +5,8 @@
       <ul class="footer-location__wrapper">
         <li class="footer-location__item">
           <img class="footer-location__date_icon" src="@/assets/img/LocationFooter.svg" alt="Адресс">
-          <a class="data-location__text" href="">
-            Красноярск, ул.Авиаторов, д.19МВДЦ “Сибирь” (конференц-зал “Амфитеатр”) 
+          <a class="data-location__text" href="https://yandex.ru/maps/-/CCUjvHSCLA" target="_blank" rel="noopener noreferrer">
+            Красноярск,<br> ул.Авиаторов, д.19
           </a>
         </li>
         <li class="footer-location__item">
@@ -49,6 +49,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.best-life {
+  padding-bottom: 40px;
+}
+.data-location__text {
+  font-size: 1.2em;
+  margin: 5px;
+}
 .footer-location {
   color: black;
 }
@@ -75,6 +82,24 @@ export default {
   }
   .map__item {
     flex: 2 2;
+  }
+  .footer-location__wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    align-content: center;
+    margin: 30px 0;
+    gap: 45px;
+  }
+  .data-location__text {
+    font-size: 1.7em;
+    margin: 5px;
+  }
+  .footer-location__item {
+    gap: 0;
+  }
+  .footer-location__date_icon {
+    width: 30px;
   }
 }
 </style>

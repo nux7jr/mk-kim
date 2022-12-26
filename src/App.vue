@@ -4,11 +4,19 @@
   </div>
 </template>
 <script>
+
 export default {
   components: {},
+  mounted() {
+  }, 
+  methods: {
+  }
 };
 </script>
 <style lang="scss">
+:root {
+  --swiper-theme-color: #ff5000 !important;
+}
 #app {
   -webkit-font-smoothing: antialiased;
   color: black;
@@ -29,9 +37,7 @@ html {
 }
 nav {
   a {
-    font-weight: bold;
     color: #2c3e50;
-
     &.router-link-exact-active {
       color: #42b983;
     }
@@ -105,6 +111,12 @@ footer {
   footer {
     padding: 0 calc(50vw - 590px);
   }
+  .default__heading {
+    font-size: 4em;
+  }
+  p {
+    font-size: 1.5em;
+  }
 }
 .default__button {
   border-color: transparent;
@@ -147,5 +159,12 @@ footer {
   font-style: normal;
   font-weight: 700;
   font-size: 2em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+@media (min-width: 1199.98px) {
+  .default__heading {
+    font-size: 2.6em;
+  }
 }
 </style>

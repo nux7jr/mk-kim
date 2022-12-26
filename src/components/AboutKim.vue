@@ -3,22 +3,22 @@
     <h2 class="default__heading">О Сергее Ким</h2>
     <div class="more-kim">
       <div class="more-kim__item slider-kim">
-        <img src="@/assets/img/bigPort.png" alt="Ким" />
+        <SliderVue />
       </div>
       <div class="more-kim__item more-kim__text">
-        <p>
+        <p class="more-kim__small-heading">
           <strong
             >Серийный предприниматель. Основатель международной группы компаний
             TIKSAN GROUP с годовым оборотом 1 млрд. рублей</strong
           >
-          <a
-            href="https://tiksan.ru/"
-            class="more-kin__link default__button"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Подробнее о Tiksan group</a
-          >
         </p>
+        <a
+          href="https://tiksan.ru/"
+          class="more-kin__link default__button"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Подробнее о TIKSAN GROUP</a
+        >
         <div class="growth">
           <p>Начинал свой путь с обычного гастарбайтера</p>
           <img
@@ -37,14 +37,15 @@
         11 направлений бизнеса в области строительства, отопления, сфере
         общепита
       </p>
-      <ul>
+      <ul class="now__items">
         <p>4 производственных комплекса:</p>
-        <li>отопительного оборудования</li>
-        <li>строительных материалов</li>
-        <li>пищевой продукции</li>
+        <li>• отопительного оборудования</li>
+        <li>• строительных материалов</li>
+        <li>• пищевой продукции</li>
+        <li>• строительной технологии - SIP-панелей</li>
       </ul>
       <p>
-        Компания Tiksan Group работает в более чем 100 городах России, СНГ,
+        Компания TIKSAN GROUP работает в более чем 100 городах России, СНГ,
         Европы и Азии
       </p>
       <p>
@@ -56,28 +57,11 @@
         России
       </p>
     </div>
-    <div class="buyIt">
-      <img src="#" alt="" />
-      <p>
-        Вы можете сами управлять своей судьбой и достичь результатов не зависимо
-        от внешних обстоятельств.
-      </p>
-      <p>
-        А значит, откроете в себе новые ресурсы, станете еще более успешным и
-        счастливым!
-      </p>
-      <a
-        href="https://krs.kassir.ru/obrazovanie/ot-gastarbaytera-do-milliardera"
-        target="_blank"
-        class="default__button"
-        onclick="ym(90660050,'reachGoal','clickkassir')"
-        >Купить билет</a
-      >
-    </div>
   </section>
 </template>
 
 <script>
+import SliderVue from '@/components/Slider.vue';
 export default {
   name: "MkKimAboutKim",
 
@@ -87,6 +71,9 @@ export default {
   mounted() {},
 
   methods: {},
+  components: {
+    SliderVue,
+  }
 };
 </script>
 
@@ -108,10 +95,20 @@ export default {
   display: flex;
   flex-direction: column;
 }
+.more-kin__link {
+  background-color: #262B2E;
+}
 @media (min-width: 991.98px) {
+  .more-kim__small-heading {
+    font-size: 1.4em;
+  }
   .more-kim {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 150px;
+  }
+  .now__items li {
+    font-size: 1.3em;
   }
 }
 </style>

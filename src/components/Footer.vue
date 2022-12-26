@@ -4,7 +4,7 @@
       <div class="footer__item">
         <div class="footer-social__icons">
           <a
-            href="https://vk.com/tiksangroup"
+            href="https://vk.com/tiksan_academy"
             target="_blank"
             rel="noopener noreferrer"
             ><img
@@ -31,7 +31,7 @@
               alt="LOGO"
           /></a>
         </div>
-        <p>@ 2022 Бизнес академия Tiksan Group</p>
+        <p>@ 2022 Бизнес-академия TIKSAN GROUP</p>
       </div>
       <div class="footer-contact">
         <ul class="footer-contact__list">
@@ -39,13 +39,13 @@
           <li>ИП Ким Сергей Геннадьевич</li>
           <li>ИНН 272498786001</li>
           <li>ОГРН 272498786001</li>
-          <li>Tiksan group</li>
+          <li>TIKSAN GROUP</li>
           <li>660135, г. Красноярск, ул. Октябрьская, 8а</li>
         </ul>
       </div>
-      <div>
+      <div class="footer__info">
         <a
-          href="http://"
+          href="https://www.mk-kim.ru/politics.docx"
           class="footer-politic"
           target="_blank"
           rel="noopener noreferrer"
@@ -79,7 +79,12 @@ footer {
 .footer-social__icons {
   display: block;
 }
-
+p {
+  font-size: 1.1em;
+}
+.footer__info {
+  margin-top: 20px;
+}
 .footer__wrapper {
   color: white;
   font-weight: 400;
@@ -108,9 +113,27 @@ footer {
   flex-direction: column;
 }
 @media (min-width: 575.98px) {
+  .footer__info {
+    margin-top: 0px;
+  }
   .footer__wrapper {
     flex-direction: row;
     justify-content: space-between;
   }
+  .footer__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .footer__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 210px;
+  }
+  .footer__info p {
+    margin: 0;
+  }
+  
 }
 </style>

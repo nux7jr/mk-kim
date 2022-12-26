@@ -5,8 +5,7 @@
       <img class="small-city__img" src="@/assets/img/mapCity.png" alt="city" />
       <img class="big-city__img" src="@/assets/img/cityBig.png" alt="city" />
     </div>
-    <button class="default__button other__call">
-      <!-- @click="layer.show1 = true" -->
+    <button class="default__button other__call" @click="layer.show1 = true">
       Забронировать билеты в своем городе
     </button>
     <div class="container">
@@ -18,6 +17,7 @@
         ref="lv1"
       >
         <div class="firstStep">
+          <div class="firstStep_wrapper">
           <div class="firstStep__heading">
             <h2>Забронируйте билеты на мастер-класс в своем городе</h2>
             <button class="close" @click="layer.show1 = false">
@@ -32,6 +32,7 @@
                 type="text"
                 name="name"
                 id=""
+                v-model="otherUserForm.name"
                 placeholder="Игорь Меньшов"
               />
             </div>
@@ -41,6 +42,7 @@
                 class="Cform__input"
                 mask="\+\7 (111) 111-11-11"
                 @input="rawVal = arguments[2]"
+                v-model="otherUserForm.phone"
                 placeholder="+7 999 900 00 00"
               />
             </div>
@@ -51,28 +53,29 @@
                 type="text"
                 name="city"
                 id=""
+                v-model="otherUserForm.city"
                 placeholder="Название города"
               />
             </div>
             <div class="Cform__item">
               <label class="Cform__label" for="ticket">Кол-во билетов</label>
-              <input class="Cform__input" type="number" name="ticket" id="" />
+              <input class="Cform__input" type="number" name="ticket" id="" v-model="otherUserForm.quantity"/>
             </div>
           </form>
           <button
-            @click="layer.show2 = true"
+            @click="multiplyActions"
             class="default__button nextStepButton"
           >
             Забронировать
           </button>
-          <small
+          <small class="Cform__small"
             >Отправляя заявку, вы соглашаетесь на обработку персональных данных
             в соответствии с
             <a href="" class="politic">политикой конфиденциальности</a></small
           >
+          </div>
         </div>
         <popup-layer
-          class="secondStep"
           :visible.sync="layer.show2"
           :extra="{ lv: 2 }"
           @onOpen="open"
@@ -80,16 +83,18 @@
           ref="lv2"
         >
           <div class="secondStep">
-            <div class="secondStep__heading">
-              <h2>Ваша заявка принята</h2>
-              <button class="close" @click="closeAll">
+            <div class="secondStep__wrapper">
+              <div class="secondStep__heading">
+                <h2>Ваша заявка принята</h2>
+                <p>Скоро с вами свяжется специалист</p>
+              </div>
+              <button class="closeAll" @click="closeAll">
                 <img class="close__img" src="@/assets/img/Close.svg" alt="" />
               </button>
+              <!-- <button @click="layer.show2 = false" class="default__button">
+                Назад
+              </button> -->
             </div>
-            <p>Скоро с вами свяжется специалист</p>
-            <button @click="layer.show2 = false" class="default__button">
-              Назад
-            </button>
           </div>
         </popup-layer>
       </popup-layer>
@@ -109,6 +114,12 @@ export default {
         show1: false,
         show2: false,
       },
+      otherUserForm: {
+        name: "",
+        phone: "",
+        quantity: "",
+        city: "",
+      },
     };
   },
   components: {
@@ -118,6 +129,10 @@ export default {
   mounted() {},
 
   methods: {
+    multiplyActions() {
+      this.layer.show2 = true;
+      this.sendLead();
+    },
     open(id, extra) {
       console.log("Pop-up layer opened ：" + extra.lv, id, extra);
     },
@@ -134,29 +149,62 @@ export default {
       );
     },
     closeAll() {
-      // back the root level 0,total level 2
       this.$refs.lv1.backLvBy(0, 2, (i) => {
         this.layer["show" + i] = false;
       });
+    },
+    sendLead() {
+        const params = new FormData();
+        params.set("name", this.otherUserForm.name);
+        params.set("quantity", this.otherUserForm.quantity);
+        params.set("phone", this.otherUserForm.phone);
+        params.set("city", this.otherUserForm.city);
+        fetch("https://www.mk-kim.ru/emailMess.php", {
+          method: "POST",
+          body: params,
+        })
+          .then(function (response) {
+            ym(90660050,'reachGoal','mklead');
+            return response.json();
+          })
+          .then(function (data) {
+            console.log(data)
+          });
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.other {
+  padding-top: 30px;
+  background-color: #EBEBEB;
+}
 .politic {
   color: #ff5000;
+}
+.Cform__small {
+  display: block;
+  padding: 15px;
 }
 .Cform__item {
   display: flex;
   flex-direction: column;
   margin: 20px;
 }
+.Cform__label {
+  margin-bottom: 10px;
+}
 .Cform__input {
-  height: 40px;
+  height: 36px;
   border-radius: 10px;
   border-color: transparent;
   outline: none;
+}
+::placeholder {
+  font-size: 1.3em;
+  padding: 8px 0 4px 0;
+  margin: 5px;
 }
 .firstStep {
   background-color: #262b2e;
@@ -167,17 +215,34 @@ export default {
 .secondStep {
   background-color: #262b2e;
   color: white;
-  border-radius: 15px;
-  height: 95%;
+  height: 100%;
+}
+.secondStep__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url(@/assets/img/maxfullsize.png);
-  background-position: left center;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-size: contain;
-  background-size: auto;
+  text-align: left;
+  border-radius: 15px;
+  min-height: -webkit-fill-available;
+
+  position: relative;
+}
+.closeAll {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: transparent;
+  border: none;
+  width: auto !important;
+  cursor: pointer;
 }
 .close__img {
-  width: 30px;
+  width: 50px;
 }
 .close {
   background-color: transparent;
@@ -186,12 +251,13 @@ export default {
   cursor: pointer;
 }
 .firstStep__heading {
+  padding: 20px;
   display: flex;
   justify-content: space-between;
 }
 .secondStep__heading {
-  display: flex;
-  justify-content: space-between;
+  padding: 40%;
+  padding-left: 90%;
 }
 .nextStepButton {
   display: block;
@@ -230,9 +296,40 @@ export default {
   }
 }
 @media (min-width: 991.98px) {
+  .secondStep {
+    border-radius: 15px;
+  }
   .Cform {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+  .firstStep_wrapper {
+    max-width: 50%;
+    background-color: #262b2e;
+    border-radius: 15px;
+  }
+  .firstStep {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+  }
+  .nextStepButton {
+    margin: 0 0 0 20px;
+  }
+  .secondStep__wrapper {
+    min-width: 51%;
+    background-color: #262b2e;
+    border-radius: 15px;
+  }
+  .secondStep {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+  }
+  .secondStep__heading {
+    padding: 2%;
+    padding-left: 70%;
   }
 }
 </style>

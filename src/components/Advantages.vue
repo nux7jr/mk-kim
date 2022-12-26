@@ -16,14 +16,14 @@
         </li>
         <li>• Алгоритм <strong>успешного дня</strong></li>
         <li>• Механики формирования <strong>мотивации и энергии</strong></li>
-        <li>• Пошаговый план <strong>к первому миллиону $</strong></li>
+        <li>• Пошаговый план Срегея Кима, который привел его<strong> к первому миллиону $</strong></li>
       </ul>
       <a
         href="https://krs.kassir.ru/obrazovanie/ot-gastarbaytera-do-milliardera"
         class="default__button"
+        onclick="ym(90660050,'reachGoal','clickkassir')"
         target="_blank"
         rel="noopener noreferrer"
-        onclick="ym(90660050,'reachGoal','clickkassir')"
         >Забронировать место</a
       >
     </div>
@@ -71,6 +71,11 @@ export default {
   }
   .advantages {
     justify-content: space-between;
+  }
+}
+@media (min-width: 1199.98px) {
+  li {
+    font-size: 1.4em;
   }
 }
 </style>

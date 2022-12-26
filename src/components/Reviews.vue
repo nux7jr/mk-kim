@@ -1,16 +1,25 @@
 <template>
   <section class="reviews">
-    <h2 class="reviews__heading">Отзывы<br> Бизнес академии Tiksan group</h2>
+    <h2 class="reviews__heading">Отзывы<br> Бизнес академии TIKSAN GROUP</h2>
     <div class="reviews-slider swiper" ref="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img class="slide__img" src="@/assets/img/rew1.png" alt="отзыв">
+          <img class="slide__img" src="@/assets/img/feedback1.png" alt="отзыв">
         </div>
         <div class="swiper-slide">
-          <img class="slide__img" src="@/assets/img/rew1.png" alt="отзыв">
+          <img class="slide__img" src="@/assets/img/feedback2.png" alt="отзыв">
         </div>
         <div class="swiper-slide">
-          <img class="slide__img" src="@/assets/img/rew1.png" alt="отзыв">
+          <img class="slide__img" src="@/assets/img/feedback3.png" alt="отзыв">
+        </div>
+        <div class="swiper-slide">
+          <img class="slide__img" src="@/assets/img/feedback4.png" alt="отзыв">
+        </div>
+        <div class="swiper-slide">
+          <img class="slide__img" src="@/assets/img/feedback5.png" alt="отзыв">
+        </div>
+        <div class="swiper-slide">
+          <img class="slide__img" src="@/assets/img/feedback6.png" alt="отзыв">
         </div>
       </div>
       <div class="swiper-pagination"></div>
@@ -99,7 +108,6 @@ export default {
 .swiper-slide {
   display: flex;
   justify-content: center;
-  min-height: 450px;
 }
 .swiper-pagination-bullet-active {
   background-color: #000 !important;
