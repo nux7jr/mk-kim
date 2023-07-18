@@ -75,6 +75,8 @@ export default {
 <style lang="scss" scoped>
 footer {
   background-color: #262b2e;
+  background: #262b2e;
+  box-shadow: 0px 4px 158px rgba(0, 0, 0, 0.5);
 }
 .footer-social__icons {
   display: block;
@@ -134,6 +136,5 @@ p {
   .footer__info p {
     margin: 0;
   }
-  
 }
 </style>

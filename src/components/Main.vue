@@ -10,11 +10,15 @@
         <div class="selected-text upper">От гастарбайтера</div>
         до миллиардера
       </h3>
-      <p class="main-info__text"><strong>Действующие алгоритмы,</strong> которые приведут вас к результату.</p>
+      <p class="main-info__text">
+        <strong>Действующие алгоритмы,</strong> которые приведут вас к
+        результату.
+      </p>
       <a
         href="https://krs.kassir.ru/obrazovanie/ot-gastarbaytera-do-milliardera"
         target="_blank"
-        class="main-info__link default__button" onclick="ym(90660050,'reachGoal','clickkassir')"
+        class="main-info__link default__button"
+        onclick="ym(90660050,'reachGoal','clickkassir')"
         >Купить билет</a
       >
     </div>
@@ -22,9 +26,19 @@
       <div class="location">
         <ul class="location__wrapper">
           <li class="location__item">
-            <img class="date_icon adress" src="@/assets/img/time.svg" alt="Адресс" />
-            <a class="data-location__text" href="https://yandex.ru/maps/-/CCUjvHSCLA" target="_blank" rel="noopener noreferrer">
-              МВДЦ «Сибирь»<br>Красноярск,<br> ул.Авиаторов, д.19
+            <img
+              class="date_icon adress"
+              src="@/assets/img/time.svg"
+              alt="Адресс"
+            />
+            <a
+              class="data-location__text"
+              href="https://yandex.ru/maps/-/CCUjvHSCLA"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              МВДЦ «Сибирь»<br />Красноярск,<br />
+              ул.Авиаторов, д.19
             </a>
           </li>
           <li class="location__item">
@@ -83,8 +97,8 @@ export default {
   max-width: fit-content;
 }
 .main-info__slogan {
-   // border: 3px solid #ff5000; //
-  background-image: url(@/assets/img/border.svg); 
+  // border: 3px solid #ff5000; //
+  background-image: url(@/assets/img/border.svg);
   background-repeat: no-repeat;
   background-size: contain;
   padding: 20px;
